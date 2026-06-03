@@ -1,0 +1,9 @@
+In Create_first_job.md and Create_second_job(private_repo) we build manually 
+
+To automate this process we use triggers which can configured using triggers options we are going to learn 3 types of triggers
+1) Webhooks
+2) Pollscm
+3) build periodically 
+
+Using Webhooks:-
+1) 
