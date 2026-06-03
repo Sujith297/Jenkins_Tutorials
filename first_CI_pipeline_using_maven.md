@@ -94,6 +94,8 @@ Follow the same steps mentioned in the `Create_first_job.md` file.
 
 3. Configure the **Post-build Actions** section.
 
+   <img width="1345" height="779" alt="image" src="https://github.com/user-attachments/assets/c1fddb8b-b231-4061-ab8e-e63ac79486b3" />
+
 4. Open:
 
    ```text
@@ -102,7 +104,7 @@ Follow the same steps mentioned in the `Create_first_job.md` file.
 
    Go to the **Manager App**, enter the username and password, and verify that the application has been deployed successfully.
 
-<img width="1345" height="779" alt="image" src="https://github.com/user-attachments/assets/c1fddb8b-b231-4061-ab8e-e63ac79486b3" />
+
 
 
 
