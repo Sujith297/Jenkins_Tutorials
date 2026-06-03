@@ -1,47 +1,89 @@
-In Create_first_job.md and Create_second_job(private_repo) we build manually 
+# Jenkins Triggers
 
-To automate this process we use triggers which can configured using triggers options we are going to learn 3 types of triggers
-1) Webhooks
-2) Pollscm
-3) build periodically 
+In `Create_first_job.md` and `Create_second_job.md` (private repository), we built jobs manually.
 
-Using Webhooks:-
-(steps to be done in github)
-1) Go to repo settings which are used in the first job or second job 
-2) you wil see option webhook 
-3) Add webhook by adding payloadurl( ipaddr:8080/github-webhook)
-(steps to be done in jenkins)
-1) go to job and configuire trggers by selecting webhooks
-2)then save 
+To automate this process, we use **triggers**. Triggers can be configured in the **Build Triggers** section. We are going to learn three types of triggers:
 
-observations:- 
-1) github talks to jenkins 
-2) new commits automatically pushed to pipeline 
+1. Webhooks
+2. Poll SCM
+3. Build Periodically
 
+## Using Webhooks
 
-prerequisites:
-cron syntax
-learn & practice:- https://crontab.guru/
+### Steps to be Done in GitHub
 
-linux commands:-
+1. Go to the repository settings used in the first or second job.
+2. Select **Webhooks**.
+3. Add a webhook by providing the payload URL:
+
+   ```text
+   http://<jenkins-ip>:8080/github-webhook/
+   ```
+
+### Steps to be Done in Jenkins
+
+4. Go to the job configuration.
+5. Under **Build Triggers**, select **GitHub hook trigger for GITScm polling**.
+6. Save the job.
+
+### Observations
+
+1. GitHub talks to Jenkins.
+2. New commits automatically trigger the pipeline.
+
+---
+
+## Prerequisites
+
+### Cron Syntax
+
+Learn and practice:
+https://crontab.guru/
+
+### Linux Command
+
+```bash
 timedatectl set-timezone "Asia/Kolkata"
+```
 
+---
 
-using pollscm: 
-1) go to job configurations and go to triggers and select the poll scm 
-2) add cron syntax e.g( * * * * *)
+## Using Poll SCM
 
-observations:-
-1) jenkins talks to github (is new commit is done based on our time settings)
-2) check timezones in ec2 instance and jenkins setting-> appearance->timezone
-3) if new commits found then only pipeline triggers
+1. Go to the job configuration.
+2. Under **Build Triggers**, select **Poll SCM**.
+3. Add a cron expression.
 
-using build periodically:-
-1) go to job configurations and go to triggers and select build periodically
-2) add cron syntax e.g( * * * * *)
+   Example:
 
-observations:- 
-1) irrespective of newer commits it will build on given time while configuring
+   ```text
+   * * * * *
+   ```
+
+### Observations
+
+1. Jenkins talks to GitHub and checks for new commits based on the configured schedule.
+2. Verify the timezone on both the EC2 instance and Jenkins (**Manage Jenkins → Appearance → Time Zone**).
+3. The pipeline is triggered only when new commits are detected.
+
+---
+
+## Using Build Periodically
+
+1. Go to the job configuration.
+2. Under **Build Triggers**, select **Build Periodically**.
+3. Add a cron expression.
+
+   Example:
+
+   ```text
+   * * * * *
+   ```
+
+### Observations
+
+1. The job is triggered according to the configured schedule, regardless of whether new commits exist.
+
 
 
 
