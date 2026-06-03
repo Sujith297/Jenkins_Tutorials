@@ -3,6 +3,7 @@ Building our frist ci_pipeline using maven for java project
 prerequisites for maven :
 installation:
 command:- yum install maven -y
+
 java lifecycle 
 1)code (mvn archetype:generate)
 2)complie (mvn compile)
@@ -16,7 +17,8 @@ setting up maven in server using tools:-
 2) select tools
 3) select maven
 4) give it a name(maven and its version) and save
-5) if server already installed mvn remove tick mark on install automatically and add path to the maven_home (path:- /usr/share/maven) 
+5) if server already installed mvn (command:- yum install maven -) remove tick mark on install automatically and add path to the maven_home (path:- /usr/share/maven)
+6) update pom.xml file according to java version (done by developer) 
 
 follow same steps for creating job that was written in Create_first_job
 1) after triggers we can see the build options where we can select maven invoke 
