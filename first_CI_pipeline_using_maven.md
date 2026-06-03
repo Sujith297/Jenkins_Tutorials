@@ -1,37 +1,109 @@
-Building our frist ci_pipeline using maven for java project
+# Building Our First CI Pipeline Using Maven for a Java Project
 
-prerequisites for maven :
-installation:
-command:- yum install maven -y
+## Prerequisites for Maven
 
-java lifecycle 
-1)code (mvn archetype:generate)
-2)complie (mvn compile)
-3)test (mvn test)
-4)package (mvn package)
-5)install (mvn install)
-6)clean (mvn clean)
+### Installation
 
-setting up maven in server using tools:- 
-1) go to jenkins managae
-2) select tools
-3) select maven
-4) give it a name(maven and its version) and save
-5) if server already installed mvn (command:- yum install maven -) remove tick mark on install automatically and add path to the maven_home (path:- /usr/share/maven)
-6) update pom.xml file according to java version (done by developer) 
+Command:
 
-follow same steps for creating job that was written in Create_first_job
-1) after triggers we can see the build options where we can select maven invoke 
-2) give goals:- clean install
+```bash
+yum install maven -y
+```
 
-CD pipeline:-
-1)create new ec2 instance where we have install tomcat for that use tomcat.sh script (read script carefully for username and password)
-2)install Deploy to container plugin in manage jenkins -> plugins -> available plugins 
+## Maven Lifecycle
 
-3)configure post build actions
+1. Code
+
+   ```bash
+   mvn archetype:generate
+   ```
+
+2. Compile
+
+   ```bash
+   mvn compile
+   ```
+
+3. Test
+
+   ```bash
+   mvn test
+   ```
+
+4. Package
+
+   ```bash
+   mvn package
+   ```
+
+5. Install
+
+   ```bash
+   mvn install
+   ```
+
+6. Clean
+
+   ```bash
+   mvn clean
+   ```
+
+## Setting Up Maven in Jenkins Using Tools
+
+1. Go to **Manage Jenkins**.
+
+2. Select **Tools**.
+
+3. Navigate to the **Maven** section.
+
+4. Provide a name for the Maven installation (for example, Maven and its version) and save it.
+
+5. If Maven is already installed on the server (`yum install maven -y`), uncheck **Install automatically** and provide the Maven home path.
+
+   Maven Home:
+
+   ```text
+   /usr/share/maven
+   ```
+
+6. Update the `pom.xml` file according to the required Java version (done by the developer).
+
+## Creating the CI Job
+
+Follow the same steps mentioned in the `Create_first_job.md` file.
+
+1. After the **Build Triggers** section, go to the **Build** section.
+2. Select **Invoke top-level Maven targets**.
+3. Enter the goals:
+
+   ```text
+   clean install
+   ```
+
+## CD Pipeline
+
+1. Create a new EC2 instance and install Tomcat using the `tomcat.sh` script. Read the script carefully for the username and password configuration.
+
+2. Install the **Deploy to Container** plugin.
+
+   Path:
+
+   ```text
+   Manage Jenkins → Plugins → Available Plugins
+   ```
+
+3. Configure the **Post-build Actions** section.
+
+4. Open:
+
+   ```text
+   http://<ec2-public-ip>:8080
+   ```
+
+   Go to the **Manager App**, enter the username and password, and verify that the application has been deployed successfully.
+
 <img width="1345" height="779" alt="image" src="https://github.com/user-attachments/assets/c1fddb8b-b231-4061-ab8e-e63ac79486b3" />
 
-4) open ec2-public_ip:8080, go to manager app give username and password and check your deployment over there
 
 
    
