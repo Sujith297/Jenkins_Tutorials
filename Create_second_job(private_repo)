@@ -1,0 +1,10 @@
+Follow the same procedure from the Create_first_job.md file
+
+Changes need to be followed :-
+1) After pasting the private_repo_url in jenkins(you will notice an error related authentication)
+2) to remove that error we will go to settings->developer settings->PAT(personal access tokens)-> classictoken-> description->tick repo-> copy key->
+3) In jenkins, credentials ->add->
+4) give username (github_id) ,password(generated_token),id, description
+5) then add, select that id 
+6) specify branch
+7) build it 
