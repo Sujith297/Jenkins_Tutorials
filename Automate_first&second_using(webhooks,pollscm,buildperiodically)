@@ -23,7 +23,25 @@ prerequisites:
 cron syntax
 learn & practice:- https://crontab.guru/
 
+linux commands:-
+timedatectl set-timezone "Asia/Kolkata"
+
+
 using pollscm: 
 1) go to job configurations and go to triggers and select the poll scm 
 2) add cron syntax e.g( * * * * *)
+
+observations:-
+1) jenkins talks to github (is new commit is done based on our time settings)
+2) check timezones in ec2 instance and jenkins setting-> appearance->timezone
+3) if new commits found then only pipeline triggers
+
+using build periodically:-
+1) go to job configurations and go to triggers and select build periodically
+2) add cron syntax e.g( * * * * *)
+
+observations:- 
+1) irrespective of newer commits it will build on given time while configuring
+
+
 
