@@ -15,7 +15,7 @@ command:- systemctl start jenkins
 
 Configuring Jenkins (jenkins by default runs 8080 port add this to security inbound rules of your instance)
 
-Open any browser and open <ec2-publicip>:8080
+Open any browser and open ec2-publicip:8080
 
 You will see jenkins dashboard 
 it asks for key token to setup 
