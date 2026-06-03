@@ -1,28 +1,78 @@
-Installing jenkins in the amazon linux machine(ec2 instance c7i-flex large)
+# Installing Jenkins on an Amazon Linux EC2 Instance (c7i-flex.large)
 
-5 Steps required to install (install as a root user)
-command:- sudo -i
-1) install java (because jenkins works on java)
-command:- yum install java-21-amazon-corretto (java version depends on the jenkins support )
-2) go jenkins.io website go to download section then select desired OS ,in our case red hat enterprise and its derivatives go there get commands 
-link:- https://www.jenkins.io/doc/book/installing/linux/#red-hat-centos
-3)install jenkins
-command:- yum install jenkins
-4) check status of jenkins
-command:- systemctl status jenkins
-5) start jenkins
-command:- systemctl start jenkins 
+### Prerequisites
 
-Configuring Jenkins (jenkins by default runs 8080 port add this to security inbound rules of your instance)
+Run all commands as the root user.
 
-Open any browser and open ec2-publicip:8080
+Command:
 
-You will see jenkins dashboard 
-it asks for key token to setup 
+```bash
+sudo -i
+```
 
-it will show you path where key token present copy that path
-command :- cat <path>
+### Steps to Install Jenkins
 
-setusername and password 
+1. Install Java (Jenkins runs on Java).
 
-Thats it 
+   Command:
+
+   ```bash
+   yum install java-21-amazon-corretto
+   ```
+
+   > Note: The Java version depends on the Jenkins version you are installing.
+
+2. Go to the Jenkins website, open the download section, and select your operating system. In this case, choose **Red Hat Enterprise Linux and its derivatives** and follow the installation commands provided there.
+
+   Link:
+   https://www.jenkins.io/doc/book/installing/linux/#red-hat-centos
+
+3. Install Jenkins.
+
+   Command:
+
+   ```bash
+   yum install jenkins
+   ```
+
+4. Check the Jenkins service status.
+
+   Command:
+
+   ```bash
+   systemctl status jenkins
+   ```
+
+5. Start Jenkins.
+
+   Command:
+
+   ```bash
+   systemctl start jenkins
+   ```
+
+## Configuring Jenkins
+
+By default, Jenkins runs on port **8080**. Add port **8080** to the inbound rules of your EC2 instance's security group.
+
+1. Open a browser and navigate to:
+
+   ```text
+   http://<ec2-public-ip>:8080
+   ```
+
+2. You will see the Jenkins setup page.
+
+3. Jenkins will ask for the initial administrator password.
+
+4. It will display the path where the password is stored. Copy the path and view the password using:
+
+   ```bash
+   cat <path-to-initial-admin-password>
+   ```
+
+5. Paste the password into the Jenkins setup page.
+
+6. Create a username and password.
+
+That's it. Jenkins is now ready to use.
