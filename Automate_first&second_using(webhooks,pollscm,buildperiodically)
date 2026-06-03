@@ -6,4 +6,15 @@ To automate this process we use triggers which can configured using triggers opt
 3) build periodically 
 
 Using Webhooks:-
-1) 
+(steps to be done in github)
+1) Go to repo settings which are used in the first job or second job 
+2) you wil see option webhook 
+3) Add webhook by adding payloadurl( ipaddr:8080/github-webhook)
+(steps to be done in jenkins)
+1) go to job and configuire trggers by selecting webhooks
+2)then save 
+
+observations:- 
+1) github talks to jenkins 
+2) new commits automatically pushed to pipeline 
+
