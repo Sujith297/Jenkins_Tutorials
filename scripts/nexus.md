@@ -1,36 +1,59 @@
+# nexus.sh
+
+This script installs Java, downloads and configures Nexus Repository Manager, creates a dedicated Nexus user, assigns the required permissions, starts the Nexus service, and displays the initial admin password.
+
+```bash
 #!/bin/bash
 
-# Nexus Repository Manager Installation
+yum install java-21-amazon-corretto -y
 
-# Install Java
-sudo yum install java-21-amazon-corretto -y
-
-# Move to /opt directory
 cd /opt
 
-# Download Nexus Repository Manager
-sudo wget https://download.sonatype.com/nexus/3/nexus-3.92.3-01-linux-x86_64.tar.gz
+wget https://download.sonatype.com/nexus/3/nexus-3.92.3-01-linux-x86_64.tar.gz
 
-# Extract Nexus package
-sudo tar -zxvf nexus-3.92.3-01-linux-x86_64.tar.gz
+tar -zxvf nexus-3.92.3-01-linux-x86_64.tar.gz
 
-# Create nexus user
-sudo useradd nexus
+useradd nexus
 
-# Change ownership
-sudo chown -R nexus:nexus nexus-3.92.3-01 sonatype-work
+chown -R nexus:nexus nexus-3.92.3-01 sonatype-work
 
-# Switch to nexus user
-sudo su - nexus
+su - nexus
 
-# Navigate to Nexus bin directory
 cd /opt/nexus-3.92.3-01/bin
 
-# Start Nexus
 ./nexus start
 
-# Check Nexus status
 ./nexus status
 
-# Display initial admin password
 cat /opt/sonatype-work/nexus3/admin.password
+```
+
+**Note:** Before running the script, verify the latest Nexus Repository Manager version from:
+
+https://help.sonatype.com/en/download.html
+
+Update the download URL and extracted folder name if a newer version is being used.
+
+**Access Nexus UI:**
+
+```text
+http://<SERVER-IP>:8081
+```
+
+**Default Login:**
+
+```text
+Username: admin
+Password: Check the output of:
+
+cat /opt/sonatype-work/nexus3/admin.password
+```
+
+**Verify Nexus Status:**
+
+```bash
+cd /opt/nexus-3.92.3-01/bin
+
+./nexus status
+```
+
